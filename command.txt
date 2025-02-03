@@ -1,0 +1,97 @@
+CREATE TABLE TABLE1(
+  
+    Roll INT(20),
+    Name VARCHAR(10),
+    Department VARCHAR(20),
+    Balance NUMERIC(5,2),
+    Grade VARCHAR(10),
+    primary key (Roll)
+
+)
+
+
+INSERT INTO table1 (Roll,Name,Department,Balance,Grade)
+VALUES(10101,'Bikash','CSE',220.25,'A')
+INSERT INTO table1 (Roll,Name,Department,Balance,Grade)
+VALUES
+(10201,'Josh','ICE',340.70,'B+'),
+(10301,'Kevin','EEE',360.00,'B-'),
+(10401,'Ben','ICE',560.16,'C'),
+(10102,'Karim','CSE',255.98,'B')
+
+ALTER TABLE table1 ADD PRIMARY KEY (Roll)
+ALTER TABLE table1 DROP PRIMARY KEY
+RENAME TABLE table1 TO Science
+
+SELECT Name,Roll
+FROM science
+WHERE Name like "B%"
+
+SELECT Department,avg(Balance) AS avg_Balance
+FROM science
+GROUP BY Department
+
+UPDATE science
+set Balance = Balance*1.10
+
+SELECT Department, SUM(Balance) As sum_Balance
+FROM science
+Group BY Department
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE CSE(
+   Roll int(20),
+    Home_District VARCHAR(100) 
+
+)
+
+INSERT INTO CSE(Roll,Home_District)
+VALUES
+(10101,'Rajshahi'),
+(10102,'Khulna'),
+(10201,'Dhaka'),
+(10301,'Rajshahi'),
+(10401,'Bogra')
+
+
+SELECT Name , Home_District
+FROM science,cse 
+WHERE 
+       science.Roll=cse.Roll AND Department='CSE';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

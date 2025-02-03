@@ -1,0 +1,33 @@
+UPDATE instructor
+set salary = salary*1.05
+where salary<(SELECT avg(salary) FROM instructor)
+
+
+UPDATE instructor
+set salary = CASE
+               WHEN salary<=100000 THEN salary*1.05
+               else salary*1.03
+               end;
+
+
+SELECT name , salary
+FROM instructor
+ORDER BY salary DESC 
+LIMIT 0,1
+
+
+
+SELECT avg(salary) avg_salary
+FROM instructor
+where dept_name= 'Comp. Sci.'
+
+SELECT COUNT(DISTINCT dept_name)
+FROM instructor;
+
+SELECT COUNT(*) AS touple
+FROM instructor;
+
+SELECT dept_name, COUNT(ID) AS num_teacher
+FROM instructor
+GROUP BY dept_name
+HAVING num_teacher>1
